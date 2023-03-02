@@ -1,0 +1,58 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Email Verification</li>
+    </ol>
+</nav>
+<!-- Breadcrumb -->
+<!-- Verification Section -->
+<section class="verification-section">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">Email Verification</h5>
+            <div class="card-body">
+               
+                
+                
+
+           
+<!-- Verification Section -->
+
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+                 <p class="card-text">Congratulations! Your email has been successfully been verified. 
+                 You will be redirected to the login page in a short while!</p>
+
+                        <div class="text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+<p>
+    This app does not currently have a real email sender registered, see <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
+    Normally this would be emailed: <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
+</p>
+    }
+    else
+    {
+<p>
+        Please check your email to confirm your account.
+</p>
+
+    }
+}
+
+            </div>
+        </div>
+    </div>
+</section>

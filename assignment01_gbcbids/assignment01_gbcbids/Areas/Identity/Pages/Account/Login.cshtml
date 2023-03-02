@@ -1,0 +1,61 @@
+﻿@page "/account/login"
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<!-- Background Image -->
+<div class="background-img">
+    <img src="~/assets/img/login.jpg" alt="" />
+    <div class="overlay"></div>
+    <div class="background-content">
+        <h1>Sign in to your account</h1>
+        <p>...your home for awesome bids!!!</p>
+    </div>
+</div>
+<!-- /Background Image -->
+
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Login</li>
+    </ol>
+</nav>
+<!-- Breadcrumb -->
+
+<!-- Form -->
+<section class="form-section">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">LOGIN HERE</h5>
+            <div class="card-body">
+                <form id="account" class="form" method="post">
+                    <p>Please fill in the form below to sign in!</p>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <label asp-for="Input.Username">Enter Username&ast;</label>
+                    <input asp-for="Input.Username" type="text" class="form-control" />
+                    <span asp-validation-for="Input.Username" class="text-danger"></span>
+
+                    <br />
+                    <label asp-for="Input.Password">Enter password&ast;</label>
+                    <input asp-for="Input.Password" type="password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                    <br />
+                    <input type="submit" class="btn" value="LOGIN" />
+
+                </form>
+                <p>Don't have an account? Please <a href="/account/register">register</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Form -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

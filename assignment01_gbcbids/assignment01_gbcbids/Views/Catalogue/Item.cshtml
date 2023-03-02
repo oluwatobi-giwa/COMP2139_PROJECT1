@@ -1,0 +1,101 @@
+﻿@model assignment01_gbcbids.Data.Item
+@{
+    ViewData["Title"] = Model.itemName;
+}
+
+<!-- Background Image -->
+<div class="background-img">
+    <img src="assets/img/wooden-judges-gavel-table-courtroom-enforcement-office.jpg" alt="" />
+    <div class="overlay"></div>
+    <div class="background-content">
+        <h1>Check This Out!</h1>
+        <p>...your home for awesome bids!!!</p>
+    </div>
+</div>
+<!-- /Background Image -->
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="catalogue.html">Catalogue</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Item</li>
+    </ol>
+</nav>
+<!-- Breadcrumb -->
+<!-- Item Section -->
+<section class="Item-section">
+    <div class="container">
+        <div class="single-item-name">
+            <h1>@Model.itemName</h1>
+            <hr />
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="single-item-img">
+                    <img src="~/Uploads/@Model.itemImage" alt="@Model.itemName" />
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="single-item-desc">
+                    <p class="text-justify">
+                        @Model.itemDesc
+                    </p>
+                </div>
+                <div class="single-item-price">
+                    <h5>Current Bid: <span>&dollar;@Model.itemCost</span></h5>
+                </div>
+                <hr />
+
+                <div class="single-item-condition">
+                    <p>Item condition: Open Box</p>
+                </div>
+
+                <div class="single-item-timer">
+                <p>Days Left: </p>
+
+                    <div class="item-timer">
+                        <div class="timer-days">
+                            <p>128</p>
+                            <span>Days</span>
+                        </div>
+
+                        <div class="timer-hours">
+                            <p>128</p>
+                            <span>Hours</span>
+                        </div>
+
+                        <div class="timer-minutes">
+                            <p>128</p>
+                            <span>Minutes</span>
+                        </div>
+
+                        <div class="timer-seconds">
+                            <p>128</p>
+                            <span>Seconds</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="single-item-info">
+                    @*<p>Number of bidders: #20</p>
+                    <p>Highest Bid: &dollar;20555</p>*@
+                    <p>Item Expires: @Model.endDate</p>
+                    <p>Sold by: &#64;@Model.SellerEmail</p>
+                </div>
+
+                <div class="single-item-action">
+                    <div class="single-item-price">
+                        <button class="btn"><i class="fa-sharp fa-solid fa-gavel"></i></button>
+                        <input type="text" class="form-contro" placeholder="Enter your bid amount" />
+                        <input type="submit" class="btn" value="Submit Bid" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Verification Section -->

@@ -1,0 +1,88 @@
+﻿@page "/account/register"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<!-- Background Image -->
+<div class="background-img">
+    <img src="~/assets/img/register-bg.jpg" alt="" />
+    <div class="overlay"></div>
+    <div class="background-content">
+        <h1>Create Your Account</h1>
+        <p>...your home for awesome bids!!!</p>
+    </div>
+</div>
+<!-- /Background Image -->
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Register</li>
+    </ol>
+</nav>
+<!-- Breadcrumb -->
+
+<!-- Form -->
+<section class="form-section">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-header">SIGN UP HERE</h5>
+            <div class="card-body">
+                <form asp-route-returnUrl="@Model.ReturnUrl" id="account" method="post" class="form">
+                    <p>Please fill in the form below to register!</p>
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+                    <label asp-for="Input.Name">Enter name&ast;</label>
+                    <input asp-for="Input.Name" type="text" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+
+                    <br />
+                    <label asp-for="Input.Email">Enter email&ast;</label>
+                    <input asp-for="Input.Email" type=" text" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+                    <br />
+                    <label asp-for="Input.Username">Enter Username&ast;</label>
+                    <input asp-for="Input.Username" type="text" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Input.Username" class="text-danger"></span>
+
+                    <br />
+                    <label asp-for="Input.Password">Enter password&ast;</label>
+                    <input asp-for="Input.Password" type="password" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+                    <br />
+                    <label asp-for="Input.ConfirmPassword">Confirm password&ast;</label>
+                    <input asp-for="Input.ConfirmPassword" type="password" class="form-control" aria-required="true" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+
+                    <br />
+                    <label asp-for="Input.Role">Seller Or Buyer&ast;</label>
+                    
+                    <select asp-for="Input.Role" class="form-control custom-select">
+                        <option value="">Choose...</option>
+                        <option value="seller">SELLER</option>
+                        <option value="buyer">BUYER</option>
+                    </select>
+
+                    <span asp-validation-for="Input.Role" class="text-danger"></span>
+
+                    <br />
+
+                    <input type="submit" class="btn" value="CREATE ACCOUNT" />
+
+                </form>
+                <p>Already a member? Please <a href="/account/login">login</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Form -->
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

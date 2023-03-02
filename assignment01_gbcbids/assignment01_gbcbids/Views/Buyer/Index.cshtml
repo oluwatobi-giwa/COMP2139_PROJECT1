@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Buyer";
+}
+
+@using Microsoft.AspNetCore.Identity
+@using assignment01_gbcbids.Data;
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!-- Background Image -->
+<div class="background-img">
+    <img src="~assets/img/welcome.jpg" alt="" />
+    <div class="overlay"></div>
+    <div class="background-content">
+        <h1>Welcome @User.Identity?.Name</h1>
+        <p>...your home for awesome bids!!!</p>
+    </div>
+</div>
+<!-- /Background Image -->
+
+<!-- Breadcrumb -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Buyer</li>
+    </ol>
+</nav>
+<!-- Breadcrumb -->
+<!-- Account Section -->
+<section class="account-section">
+    <div class="container">
+        <div class="alert welcome-alert" role="alert">
+            Welcome to your page, @User.Identity?.Name!
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="avatar-box text-center">
+                            <a href="" class="avatar">
+                                <img src="~/assets/img/7309670.jpg" alt="" />
+                            </a>
+                            <p>@User.Identity?.Name <br /><span>email@email.com</span></p>
+                        </div>
+                        <hr />
+                        <ul class="account-links">
+                            <li><a href="#"><i class="fa-solid fa-dashboard"></i>&nbsp;Dashboard</a></li>
+                            <li><a href="/buyer/view-items-bought"><i class="fa-solid fa-handshake"></i>&nbsp;View Items bought</a></li>
+                            <li><a href="/buyer/view-biddings"><i class="fa-solid fa-gavel"></i>&nbsp;View All Biddings</a></li>
+@*                            <li><a href="edit-buyer-profile.html"><i class="fa-solid fa-address-card"></i>&nbsp;Edit Profile</a></li>
+*@                            <li><a href="/account/logout"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="widget-header">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            80 Items Uploaded
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            80 Items sold
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            #1 Seller Rank
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <hr />
+
+                        <div class="seller-details">
+                            <h4>Seller Details</h4>
+                            <p>Name: @User.Identity?.Name</p>
+                            <p>Email: </p>
+                        </div>
+
+                        <hr />
+
+                        @* <div class="text-center">
+                        <a href="reset-password.html" class="btn">Reset Password</a>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<!-- /Account Section -->
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
